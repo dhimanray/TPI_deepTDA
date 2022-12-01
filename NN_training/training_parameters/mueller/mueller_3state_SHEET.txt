@@ -1,0 +1,62 @@
+===================================================================
+Deep-TDA Neural Network model training parameters sheet
+===================================================================
+
+MODEL NAME:  mueller_ts_trained_on_2state_cv_new.pt
+
+states_num:  3
+cvs_num 1
+Seed:  42
+
+
+==== Dataset ====
+Upload source:  GoogleDrive
+State A path:  /content/gdrive/MyDrive/DeepTDA_mueller/new_set/StateA
+State B path:  /content/gdrive/MyDrive/DeepTDA_mueller/new_set/ts_data_new
+State C path:  /content/gdrive/MyDrive/DeepTDA_mueller/new_set/StateB
+n_input:  2
+max_rows:  6000
+
+Standardize input:  True
+
+Train size:  1200
+Train batch:  600
+Valid set:  514
+
+
+==== NN Parameters ====
+Dtype:  torch.float32
+Device : cpu
+
+Hidden nodes:  6,4,1
+NN arch:  [2, 6, 4, 1]
+Dropout prob:  0
+
+Learning rate:  0.001
+L2 regularization: 1e-05
+
+==== Deep-TDA target distribution and loss function ====
+target_centers:  [-7  0  7]
+target_sigma:  [0.5, 1.0, 0.5]
+alfa (hyperparameter for centers):  1
+beta (hyperparameter for sigmas):  250
+Num epochs:  1500
+
+
+==== NN-CV coordinates ====
+
+MODEL NAME:  mueller_ts_trained_on_2state_cv_new.pt
+
+BASIN A
+Mean: -6.339722
+Std: 0.506250
+Indicative range:  -7.4509463  -  -4.273229
+BASIN B
+Mean: 0.129104
+Std: 1.065775
+Indicative range:  -2.5234556  -  2.0422397
+BASIN C
+Mean: 6.177290
+Std: 0.582203
+Indicative range:  2.404584  -  6.5597467
+

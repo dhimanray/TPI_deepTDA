@@ -1,0 +1,62 @@
+===================================================================
+Deep-TDA Neural Network model training parameters sheet
+===================================================================
+
+MODEL NAME:  SAMPL5_OAMe_G2_descriptors.pt
+
+states_num:  3
+cvs_num 1
+Seed:  42
+
+
+==== Dataset ====
+Upload source:  GoogleDrive
+State A path:  /content/gdrive/MyDrive/OAMe_G2_deep_tda_training/bound_descriptors
+State B path:  /content/gdrive/MyDrive/OAMe_G2_deep_tda_training/ts_descriptors
+State C path:  /content/gdrive/MyDrive/OAMe_G2_deep_tda_training/unbound_descriptors
+n_input:  12
+max_rows:  170000
+
+Standardize input:  True
+
+Train size:  120000
+Train batch:  60000
+Valid set:  50000
+
+
+==== NN Parameters ====
+Dtype:  torch.float32
+Device : cpu
+
+Hidden nodes:  8,6,4,1
+NN arch:  [12, 8, 6, 4, 1]
+Dropout prob:  0
+
+Learning rate:  0.0025
+L2 regularization: 1e-05
+
+==== Deep-TDA target distribution and loss function ====
+target_centers:  [-5  0  5]
+target_sigma:  [0.2, 0.5, 0.2]
+alfa (hyperparameter for centers):  1
+beta (hyperparameter for sigmas):  250
+Num epochs:  500
+
+
+==== NN-CV coordinates ====
+
+MODEL NAME:  SAMPL5_OAMe_G2_descriptors.pt
+
+BASIN A
+Mean: -4.997096
+Std: 0.188422
+Indicative range:  -5.4049425  -  -1.181203
+BASIN B
+Mean: -0.001116
+Std: 0.497954
+Indicative range:  -3.1031291  -  4.7116737
+BASIN C
+Mean: 4.990530
+Std: 0.212622
+Indicative range:  0.12952685  -  5.3995743
+

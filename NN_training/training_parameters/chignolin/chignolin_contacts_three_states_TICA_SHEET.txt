@@ -1,0 +1,63 @@
+===================================================================
+Deep-TDA Neural Network model training parameters sheet
+===================================================================
+
+MODEL NAME:  chignolin_contacts_three_states_TICA.pt
+
+states_num:  3
+cvs_num 1
+Seed:  42
+
+
+==== Dataset ====
+Upload source:  GoogleDrive
+State A path:  /content/gdrive/MyDrive/DeepTDA_Chignolin/contacts_folded_10000_points
+State B path:  /content/gdrive/MyDrive/DeepTDA_Chignolin/deepTICA_ts_data_cont
+State C path:  /content/gdrive/MyDrive/DeepTDA_Chignolin/contacts_unfolded_10000_points
+n_input:  45
+max_rows:  [9700, 9700, 9700]
+
+Standardize input:  True
+Pre shuffle input:  True
+
+Train size:  25000
+Train batch:  12504
+Valid set:  4100
+
+
+==== NN Parameters ====
+Dtype:  torch.float32
+Device : cuda
+
+Hidden nodes:  36, 24, 12, 1
+NN arch:  [45, 36, 24, 12, 1]
+Dropout prob:  0
+
+Learning rate:  0.001
+L2 regularization: 1e-05
+
+==== Deep-TDA target distribution and loss function ====
+target_centers:  [-7  0  7]
+target_sigma:  [0.2, 1.5, 0.2]
+alfa (hyperparameter for centers):  1
+beta (hyperparameter for sigmas):  250
+Num epochs:  2000
+
+
+==== NN-CV coordinates ====
+
+MODEL NAME:  chignolin_contacts_three_states_TICA.pt
+
+BASIN A
+Mean: [-6.781]
+Std: [0.364]
+Indicative range: [-6.964]- [-0.118]
+BASIN B
+Mean: [0.817]
+Std: [1.53]
+Indicative range: [-6.639]- [6.094]
+BASIN C
+Mean: [5.917]
+Std: [0.32]
+Indicative range: [1.049]- [6.507]
+

@@ -1,0 +1,63 @@
+===================================================================
+Deep-TDA Neural Network model training parameters sheet
+===================================================================
+
+MODEL NAME:  chignolin_distance_three_states_TICA.pt
+
+states_num:  3
+cvs_num 1
+Seed:  42
+
+
+==== Dataset ====
+Upload source:  GoogleDrive
+State A path:  /content/gdrive/MyDrive/DeepTDA_Chignolin/distance_folded_10000_points
+State B path:  /content/gdrive/MyDrive/DeepTDA_Chignolin/deepTICA_ts_data_dist
+State C path:  /content/gdrive/MyDrive/DeepTDA_Chignolin/distance_unfolded_10000_points
+n_input:  210
+max_rows:  [9700, 9700, 9700]
+
+Standardize input:  True
+Pre shuffle input:  True
+
+Train size:  25000
+Train batch:  12500
+Valid set:  4100
+
+
+==== NN Parameters ====
+Dtype:  torch.float32
+Device : cuda
+
+Hidden nodes:  100, 24, 12, 1
+NN arch:  [210, 100, 24, 12, 1]
+Dropout prob:  0
+
+Learning rate:  0.001
+L2 regularization: 1e-05
+
+==== Deep-TDA target distribution and loss function ====
+target_centers:  [-7  0  7]
+target_sigma:  [0.2, 1.5, 0.2]
+alfa (hyperparameter for centers):  1
+beta (hyperparameter for sigmas):  250
+Num epochs:  2000
+
+
+==== NN-CV coordinates ====
+
+MODEL NAME:  chignolin_distance_three_states_TICA.pt
+
+BASIN A
+Mean: [-6.996]
+Std: [0.201]
+Indicative range: [-7.491]- [-5.152]
+BASIN B
+Mean: [0.027]
+Std: [1.545]
+Indicative range: [-5.647]- [5.597]
+BASIN C
+Mean: [7.002]
+Std: [0.228]
+Indicative range: [4.964]- [7.727]
+

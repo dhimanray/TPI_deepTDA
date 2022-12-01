@@ -1,0 +1,58 @@
+===================================================================
+Deep-TDA Neural Network model training parameters sheet
+===================================================================
+
+MODEL NAME:  chignolin_contacts_two_states.pt
+
+states_num:  2
+cvs_num 1
+Seed:  42
+
+
+==== Dataset ====
+Upload source:  GoogleDrive
+State A path:  /content/gdrive/MyDrive/DeepTDA_Chignolin/contacts_folded
+State B path:  /content/gdrive/MyDrive/DeepTDA_Chignolin/contacts_unfolded
+n_input:  45
+max_rows:  [48000, 48000]
+
+Standardize input:  True
+Pre shuffle input:  True
+
+Train size:  64000
+Train batch:  32000
+Valid set:  32000
+
+
+==== NN Parameters ====
+Dtype:  torch.float32
+Device : cuda
+
+Hidden nodes:  24, 12, 1
+NN arch:  [45, 24, 12, 1]
+Dropout prob:  0
+
+Learning rate:  0.001
+L2 regularization: 1e-05
+
+==== Deep-TDA target distribution and loss function ====
+target_centers:  [-7  7]
+target_sigma:  [0.2, 0.2]
+alfa (hyperparameter for centers):  1
+beta (hyperparameter for sigmas):  250
+Num epochs:  500
+
+
+==== NN-CV coordinates ====
+
+MODEL NAME:  chignolin_contacts_two_states.pt
+
+BASIN A
+Mean: [-6.981]
+Std: [0.215]
+Indicative range: [-7.756]- [-0.258]
+BASIN B
+Mean: [6.978]
+Std: [0.204]
+Indicative range: [0.541]- [7.779]
+
