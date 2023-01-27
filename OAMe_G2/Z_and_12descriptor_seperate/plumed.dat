@@ -1,7 +1,4 @@
 # vim: ft=plumed
-# # --- (0) LOAD PYTORCH ---
-
-#LOAD FILE=../code/PytorchModel.cpp
 
 # --- (1) ATOMS DEFINITIONS and ALIGNMENT ---
 
