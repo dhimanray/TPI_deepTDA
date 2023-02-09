@@ -56,7 +56,7 @@ d12: MATHEVAL ARG=V8 FUNC=(x/2.8)-1.0 PERIODIC=NO
 
 # --- (3) DEEP-LDA CV and other quantities ---
 
-deepTDA: PYTORCH_MODEL FILE=SAMPL5_OAMe_G2_descriptors_model.pt ARG=d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12  #NN output
+TPIdeepTDA: PYTORCH_MODEL FILE=SAMPL5_OAMe_G2_descriptors_model.pt ARG=d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12  #NN output
 #sw: MATHEVAL ARG=s.node-0 FUNC=x+x^3 PERIODIC=NO   #Deep-LDA CV
 
 funnel: MATHEVAL ARG=radius,cyl.z VAR=r,z FUNC=(r+1.0*(-1.2+z))*step(-z+1.)+(r-0.2)*step(z-1.) PERIODIC=NO
@@ -69,7 +69,7 @@ cosang: MATHEVAL ARG=ang FUNC=cos(x) PERIODIC=NO
 
 OPES_METAD ...
    LABEL=opes
-   ARG=cyl.z,deepTDA.node-0
+   ARG=cyl.z,TPIdeepTDA.node-0
    FILE=Kernels.data
    RESTART=NO
    STATE_RFILE=compressed_Kernels.data
@@ -79,5 +79,5 @@ OPES_METAD ...
 ... OPES_METAD
 
 
-PRINT ARG=deepTDA.node-0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,cyl.z,opes.bias STRIDE=100 FILE=COLVAR
+PRINT ARG=TPIdeepTDA.node-0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,cyl.z,opes.bias STRIDE=100 FILE=COLVAR
 ENDPLUMED

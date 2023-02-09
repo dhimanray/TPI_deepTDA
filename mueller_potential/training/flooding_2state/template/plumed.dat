@@ -9,12 +9,12 @@ potential: BIASVALUE ARG=mueller
 lwall: LOWER_WALLS ARG=p.x KAPPA=1000 AT=-1.3
 uwall: UPPER_WALLS ARG=p.x KAPPA=1000 AT=+1.0
 
-deepTDA_2D: PYTORCH_MODEL FILE=mueller_2state_model.pt ARG=p.x,p.y
+deepTDA: PYTORCH_MODEL FILE=mueller_2state_model.pt ARG=p.x,p.y
 
-exclude: CUSTOM ARG=deepTDA_2D.node-0 FUNC=step(x+3.5) PERIODIC=NO
+exclude: CUSTOM ARG=deepTDA.node-0 FUNC=step(x+3.5) PERIODIC=NO
 
 opes: OPES_METAD ...
-  ARG=deepTDA_2D.node-0
+  ARG=deepTDA.node-0
   PACE=500
   BARRIER=10
   SIGMA=0.05
@@ -22,13 +22,13 @@ opes: OPES_METAD ...
 ...
 
 COMMITTOR ...
- ARG=deepTDA_2D.node-0
+ ARG=deepTDA.node-0
  BASIN_LL1=6.5
  BASIN_UL1=8.0
  STRIDE=20
 ... COMMITTOR
 
-PRINT FMT=%g STRIDE=1 FILE=COLVAR ARG=p.x,p.y,deepTDA_2D.node-0,mueller,opes.bias
+PRINT FMT=%g STRIDE=1 FILE=COLVAR ARG=p.x,p.y,deepTDA.node-0,mueller,opes.bias
 
 ENDPLUMED
 

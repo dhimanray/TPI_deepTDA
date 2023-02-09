@@ -78,7 +78,7 @@ cont45: COORDINATION GROUPA=123 GROUPB=147 SWITCH={RATIONAL D_0=0.0 R_0=0.80 NN=
 
 
 #Deep-TDA CV
-deepTDA2state: PYTORCH_MODEL FILE=chignolin_contacts_two_states_model.pt ARG=cont1,cont2,cont3,cont4,cont5,cont6,cont7,cont8,cont9,cont10,cont11,cont12,cont13,cont14,cont15,cont16,cont17,cont18,cont19,cont20,cont21,cont22,cont23,cont24,cont25,cont26,cont27,cont28,cont29,cont30,cont31,cont32,cont33,cont34,cont35,cont36,cont37,cont38,cont39,cont40,cont41,cont42,cont43,cont44,cont45
+deepTDA: PYTORCH_MODEL FILE=chignolin_contacts_two_states_model.pt ARG=cont1,cont2,cont3,cont4,cont5,cont6,cont7,cont8,cont9,cont10,cont11,cont12,cont13,cont14,cont15,cont16,cont17,cont18,cont19,cont20,cont21,cont22,cont23,cont24,cont25,cont26,cont27,cont28,cont29,cont30,cont31,cont32,cont33,cont34,cont35,cont36,cont37,cont38,cont39,cont40,cont41,cont42,cont43,cont44,cont45
 
 #HLDA
 d1: CONTACTMAP ATOMS1=23,146 SWITCH={RATIONAL R_0=0.3 D_0=0.0 NN=6 MM=8}
@@ -92,7 +92,7 @@ hlda: COMBINE ARG=d1.contact-1,d2.contact-1,d3.contact-1,d4.contact-1,d5.contact
 
 OPES_METAD ...
   LABEL=opes
-  ARG=deepTDA2state.node-0
+  ARG=deepTDA.node-0
   FILE=Kernels.data
   STATE_RFILE=compressed.Kernels
   STATE_WFILE=compressed.Kernels
@@ -105,6 +105,6 @@ OPES_METAD ...
 
 
 # PRINT
-PRINT STRIDE=100 ARG=hlda,rmsd_ca,deepLDA.node-0,deepTICA.node-0,deepTDA2state.node-0,opes.bias FILE=COLVARb
+PRINT STRIDE=100 ARG=hlda,rmsd_ca,deepLDA.node-0,deepTICA.node-0,deepTDA.node-0,opes.bias FILE=COLVARb
 PRINT STRIDE=500 ARG=* FILE=COLVAR
 

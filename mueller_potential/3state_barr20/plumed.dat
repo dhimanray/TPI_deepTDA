@@ -9,16 +9,16 @@ potential: BIASVALUE ARG=mueller
 lwall: LOWER_WALLS ARG=p.x KAPPA=1000 AT=-1.3
 uwall: UPPER_WALLS ARG=p.x KAPPA=1000 AT=+1.0
 
-deepTDA: PYTORCH_MODEL FILE=mueller_ts_trained_on_2state_cv_model.pt ARG=p.x,p.y
+TPIdeepTDA: PYTORCH_MODEL FILE=mueller_ts_trained_on_2state_cv_model.pt ARG=p.x,p.y
  
 opes: OPES_METAD ...
-  ARG=deepTDA.node-0
+  ARG=TPIdeepTDA.node-0
   PACE=500
   BARRIER=20
 ...
 
 
-PRINT FMT=%g STRIDE=50 FILE=COLVAR ARG=p.x,p.y,deepTDA.node-0,mueller,opes.bias
+PRINT FMT=%g STRIDE=50 FILE=COLVAR ARG=p.x,p.y,TPIdeepTDA.node-0,mueller,opes.bias
 
 ENDPLUMED
 
