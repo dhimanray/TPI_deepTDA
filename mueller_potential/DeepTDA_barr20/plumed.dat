@@ -9,7 +9,12 @@ potential: BIASVALUE ARG=mueller
 lwall: LOWER_WALLS ARG=p.x KAPPA=1000 AT=-1.3
 uwall: UPPER_WALLS ARG=p.x KAPPA=1000 AT=+1.0
 
+#deepTDA CV
 deepTDA: PYTORCH_MODEL FILE=mueller_2state_model.pt ARG=p.x,p.y
+
+#put wall on deepTDA CV to limit exploration
+tda_lwall: LOWER_WALLS ARG=deepTDA.node-0 KAPPA=1000 AT=-8.5
+tda_uwall: UPPER_WALLS ARG=deepTDA.node-0 KAPPA=1000 AT=8.5
  
 opes: OPES_METAD ...
   ARG=deepTDA.node-0
